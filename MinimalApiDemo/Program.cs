@@ -1,6 +1,7 @@
 // Configure services
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -84,6 +85,8 @@ app.UseAuthorization();
 
 // GET endpoint where IHelloService and ClaimsPrincipal and injected by dependency no needs to use anymore [FromServices] attribute
 // ClaimsPrincipal is automatically injected
+
+app.MapGet("/",() => "Hello World!");
 app.MapGet("/Hello", (bool? isHappy, IHelloService service, ClaimsPrincipal user) =>
 {
     if (isHappy is null)

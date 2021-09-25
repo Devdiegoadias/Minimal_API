@@ -6,8 +6,8 @@ namespace MinimalApiDemo.Services
     public interface IHelloService
     {
         string Hello(ClaimsPrincipal user, bool isHappy);
-    }
-
+    }   
+    
     public class HelloService : IHelloService
     {
         public string Hello(ClaimsPrincipal user, bool isHappy)
